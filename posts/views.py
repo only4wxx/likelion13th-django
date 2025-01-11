@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import JsonResponse
 from django.shortcuts import get_object_or_404
 from django.views.decorators.http import require_http_methods # 추가
-from .models import *
+from .models import * # 추가
 
 # Create your views here.
 
@@ -24,6 +24,7 @@ def get_post_detail(reqeust, id):
         "title" : post.title,
         "content" : post.content,
         "status" : post.status,
+        "user" : post.user.username
     }
     return JsonResponse({
         "status" : 200,
